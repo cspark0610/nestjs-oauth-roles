@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@config/*": ["./src/config/*"],
+      "@src/*": ["./src/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@root/*": ["./"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "src/migrations", "ormconfig.js"]
+}
