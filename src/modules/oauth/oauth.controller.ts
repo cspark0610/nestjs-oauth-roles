@@ -18,8 +18,6 @@ export class OauthController {
     return this.OAuthService.reportJwt(req);
   }
 
-  //@UseGuards(AuthGuard('jwt'))
-
   @Post('token')
   async generateToken(@Request() req) {
     return this.OAuthService.reportJwt(req);

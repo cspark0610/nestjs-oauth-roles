@@ -3,6 +3,7 @@ import { ArtistService } from '@modules/artist/artist.service';
 import { Artist } from '@modules/artist/artist.entity';
 import { CreateArtistDto } from '@modules/artist/artist.create.dto';
 import { OAuthAuthorizationGuard } from '../authorization/authorization.guard';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('artists')
 export class ArtistController {
@@ -13,15 +14,17 @@ export class ArtistController {
     return this.artistService.getArtists();
   }
 
-  @UseGuards(OAuthAuthorizationGuard)
+  @UseGuards(AuthGuard('jwt'))
   @Get('/:name')
   getArtistByName(@Param('name') artistName: string): Promise<Artist> {
     return this.artistService.getArtistByName(artistName);
   }
 
-  @UseGuards(OAuthAuthorizationGuard)
+  @UseGuards(AuthGuard('jwt'))
   @Post()
   createArtist(@Body() payload: CreateArtistDto): Promise<Artist> {
     return this.artistService.createArtist(payload);
   }
+
+  //@UseGuards(AuthGuard('jwt'))
 }
