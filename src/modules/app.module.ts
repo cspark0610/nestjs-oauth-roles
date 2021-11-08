@@ -3,17 +3,27 @@ import { ArtistModule } from '@modules/artist/artist.module';
 import { DBModule } from '@modules/db/db.module';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { AuthorizationModule } from './authorization/authorization.module';
+import { OauthModule } from './oauth/oauth.module';
+import { ClientsModule } from './clients/clients.module';
+import { UsersModule } from './users/users.module';
+import { AccessTokenModule } from './access-token/access-token.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [configuration],
-      isGlobal: true,
+      isGlobal: true
     }),
     DBModule,
     ArtistModule,
+    AuthorizationModule,
+    OauthModule,
+    ClientsModule,
+    UsersModule,
+    AccessTokenModule
   ],
   controllers: [],
-  providers: [],
+  providers: []
 })
 export class AppModule {}
