@@ -7,7 +7,7 @@ export class ClientsController {
   constructor(private clientsService: ClientsService) {}
 
   @Post()
-  affiliateClient(@Body() client: Client) {
-    return this.clientsService.affiliateClient(client);
+  registerOAuthClient(@Body() client: Client) {
+    return this.clientsService.registerOAuthClient(client);
   }
 }

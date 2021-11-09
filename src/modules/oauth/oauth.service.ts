@@ -1,4 +1,5 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { sign } from 'jsonwebtoken';
 
 export enum Provider {
@@ -15,7 +16,8 @@ export class OAuthService {
     try {
       const payload = { thirdPartyId, provider, name };
       // 1 hour
-      return sign(payload, this.JWT_SECRET_KEY, { expiresIn: 3600 });
+
+      return sign(payload, this.JWT_SECRET_KEY, { expiresIn: 36000 });
     } catch (err) {
       throw new InternalServerErrorException('validateOAuthLogin', err.message);
     }

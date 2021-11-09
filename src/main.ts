@@ -9,17 +9,17 @@ async function bootstrap() {
 
   const configService = app.get<ConfigService>(ConfigService);
 
+  app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type, Accept'
+  });
   app.useGlobalPipes(
     new ValidationPipe({
       disableErrorMessages: true
     })
   );
   app.useGlobalFilters(new HttpExceptionFilter());
-  app.enableCors({
-    origin: true,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type, Accept'
-  });
 
   console.log(`listening at port ${configService.get('port')}`);
   await app.listen(configService.get('port'));

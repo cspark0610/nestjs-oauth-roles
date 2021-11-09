@@ -7,7 +7,6 @@ import { AuthorizationModule } from './authorization/authorization.module';
 import { OauthModule } from './oauth/oauth.module';
 import { ClientsModule } from './clients/clients.module';
 import { UsersModule } from './users/users.module';
-import { AccessTokenModule } from './access-token/access-token.module';
 
 @Module({
   imports: [
@@ -20,8 +19,7 @@ import { AccessTokenModule } from './access-token/access-token.module';
     AuthorizationModule,
     OauthModule,
     ClientsModule,
-    UsersModule,
-    AccessTokenModule
+    UsersModule
   ],
   controllers: [],
   providers: []

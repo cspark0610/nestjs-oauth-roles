@@ -7,7 +7,7 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Post()
-  signup(@Body() user: User) {
-    return this.usersService.signup(user);
+  generateTokenFromCredentials(@Body() user: User) {
+    return this.usersService.generateTokenFromCredentials(user);
   }
 }

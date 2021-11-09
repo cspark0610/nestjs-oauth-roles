@@ -1,0 +1,43 @@
+###
+
+GET http://localhost:8000/oauth/login
+
+###
+POST http://localhost:8000/clients
+Content-Type: application/json
+  
+  {
+    "name": "test_client",
+    "scopes": "read write",
+    "redirectUri": "http://localhost:8000/oauth/callback"
+  }
+
+# HTTP/1.1 201 Created
+# X-Powered-By: Express
+# Vary: Origin
+# Date: Tue, 09 Nov 2021 12:38:29 GMT
+# Connection: close
+# Content-Length: 0
+# {
+#  "clientId": "uSmiW4Nz65xdNy28zhlviiOo44zpG3TX",
+#  "clientSecret": "mRFDLIMYSd9p3pQj2Um28z8JUhPIXoUi"
+# }
+  
+###  
+POST http://localhost:8000/users
+Content-Type: application/json  
+
+{
+  "username": "test_client",
+  "password": "applaudo",
+  "roles": ["ADMIN", "USER"]
+}
+###
+# RESPONSE
+# {
+#   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUm9sZSI6WyJBRE1JTiIsIlVTRVIiXSwiaWF0IjoxNjM2NDY5OTU4LCJleHAiOjE2MzY0Njk5NjF9.08eNTZCfKkjzN-fplcpVY8nhSy3M8u7Eqv5uCfy93xs",
+#   "token_type": "Bearer",
+#   "refresh_token": "JcDj4xogaxB7xhAazNvJVjQqa49HGfBv",
+#   "expires_in": 1636477158,
+#   "scope": "any"
+# }
