@@ -16,7 +16,7 @@ export class ArtistController {
   }
 
   @UseGuards(AuthGuard('jwt'), RolesGuard)
-  @Roles('user')
+  @Roles('user', 'admin')
   @Get('/:name')
   getArtistByName(@Param('name') artistName: string): Promise<Artist> {
     return this.artistService.getArtistByName(artistName);
