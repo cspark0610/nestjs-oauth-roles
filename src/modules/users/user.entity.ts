@@ -11,6 +11,7 @@ export class User {
   @Column({ name: 'password', nullable: false })
   password: string;
 
-  @Column({ name: 'roles', type: 'simple-array', nullable: false })
-  roles: string[];
+  @Column({ name: 'userTypes', nullable: false })
+  userType: string;
+  // 'admin' | 'user'
 }
